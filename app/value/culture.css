@@ -1,0 +1,1521 @@
+/* ============================================================
+   WB MINING SERVICES SARL
+   NOTRE CULTURE
+   PREMIUM CORPORATE / MINING DESIGN
+============================================================ */
+
+:root {
+  --culture-navy: #071b35;
+  --culture-navy-2: #0b294b;
+  --culture-yellow: #facc15;
+  --culture-yellow-dark: #eab308;
+
+  --culture-white: #ffffff;
+  --culture-black: #06111f;
+
+  --culture-gray-50: #f8fafc;
+  --culture-gray-100: #f1f5f9;
+  --culture-gray-200: #e2e8f0;
+  --culture-gray-300: #cbd5e1;
+  --culture-gray-400: #94a3b8;
+  --culture-gray-500: #64748b;
+  --culture-gray-600: #475569;
+
+  --culture-transition: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.culture-page {
+  width: 100%;
+  overflow: hidden;
+  background: white;
+  color: var(--culture-navy);
+}
+
+.culture-page *,
+.culture-page *::before,
+.culture-page *::after {
+  box-sizing: border-box;
+}
+
+.culture-container {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.culture-page a {
+  text-decoration: none;
+}
+
+/* ============================================================
+   COMMON
+============================================================ */
+
+.culture-eyebrow {
+  margin: 0 0 17px;
+  color: var(--culture-gray-500);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.culture-section-number {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  color: var(--culture-navy);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.culture-section-number i {
+  width: 40px;
+  height: 1px;
+  background: var(--culture-yellow);
+}
+
+.culture-section-number span:last-child {
+  color: var(--culture-gray-500);
+}
+
+.culture-section-number.light {
+  color: white;
+}
+
+.culture-section-number.light span:last-child {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.culture-hero {
+  position: relative;
+  min-height: 850px;
+  overflow: hidden;
+  background: var(--culture-navy);
+}
+
+.culture-hero-image {
+  position: absolute;
+  inset: 0;
+}
+
+.culture-image {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.04);
+  animation: cultureHeroImage 1.7s var(--culture-transition) forwards;
+}
+
+@keyframes cultureHeroImage {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.culture-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 27, 53, 0.98) 0%,
+      rgba(7, 27, 53, 0.91) 38%,
+      rgba(7, 27, 53, 0.58) 72%,
+      rgba(7, 27, 53, 0.3) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(7, 27, 53, 0.96) 0%,
+      transparent 40%
+    );
+}
+
+.culture-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.055;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+  background-size: 90px 90px;
+  mask-image: linear-gradient(
+    90deg,
+    black 0%,
+    rgba(0, 0, 0, 0.65) 45%,
+    transparent 100%
+  );
+}
+
+.culture-yellow-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 4px;
+  background: var(--culture-yellow);
+}
+
+.culture-hero-content {
+  position: relative;
+  z-index: 3;
+  min-height: 850px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 0 65px;
+}
+
+.culture-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 70px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+}
+
+.culture-kicker span {
+  width: 42px;
+  height: 1px;
+  background: var(--culture-yellow);
+}
+
+.culture-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 70px;
+  align-items: end;
+}
+
+.culture-hero-main {
+  max-width: 880px;
+}
+
+.culture-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 24px;
+  color: var(--culture-yellow);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.culture-hero-main h1 {
+  margin: 0;
+  color: white;
+  font-size: clamp(60px, 8vw, 112px);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 0.88;
+}
+
+.culture-hero-main h1 span {
+  display: block;
+  color: var(--culture-yellow);
+}
+
+.culture-hero-main p {
+  max-width: 650px;
+  margin: 42px 0 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.culture-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.culture-btn-primary,
+.culture-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 24px;
+  font-size: 12px;
+  font-weight: 900;
+  transition:
+    transform 0.3s var(--culture-transition),
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.culture-btn-primary {
+  background: var(--culture-yellow);
+  color: var(--culture-navy);
+}
+
+.culture-btn-primary:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.culture-btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.culture-btn-outline:hover {
+  border-color: var(--culture-yellow);
+  color: var(--culture-yellow);
+  transform: translateY(-3px);
+}
+
+.culture-hero-side {
+  padding-bottom: 15px;
+}
+
+.culture-side-number {
+  color: var(--culture-yellow);
+  font-size: 74px;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 1;
+}
+
+.culture-side-line {
+  width: 100%;
+  height: 1px;
+  margin: 22px 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.culture-hero-side > span {
+  color: white;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.culture-hero-side p {
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.culture-hero-bottom {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 85px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.culture-hero-bottom div {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 21px 15px 0 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.culture-hero-bottom svg {
+  color: var(--culture-yellow);
+}
+
+/* ============================================================
+   INTRO
+============================================================ */
+
+.culture-intro {
+  padding: 145px 0;
+  background: white;
+}
+
+.culture-section-heading {
+  display: grid;
+  grid-template-columns: 0.55fr 1.45fr;
+  gap: 60px;
+  margin-bottom: 85px;
+}
+
+.culture-section-heading h2,
+.culture-standards-title h2,
+.culture-principles-header h2,
+.culture-relations-content h2 {
+  margin: 0;
+  color: var(--culture-navy);
+  font-size: clamp(45px, 5vw, 73px);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.culture-section-heading h2 span,
+.culture-standards-title h2 span,
+.culture-principles-header h2 span,
+.culture-relations-content h2 span {
+  display: block;
+  color: var(--culture-gray-400);
+}
+
+.culture-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.culture-intro-image {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+  background: var(--culture-navy);
+}
+
+.culture-intro-image img {
+  object-fit: cover;
+}
+
+.culture-image-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(7, 27, 53, 0.9) 0%,
+      transparent 55%
+    );
+}
+
+.culture-image-caption {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 17px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.culture-image-caption span {
+  color: var(--culture-yellow);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.culture-image-caption strong {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.culture-intro-content {
+  position: relative;
+  padding-left: 25px;
+}
+
+.culture-big-quote {
+  position: absolute;
+  top: -65px;
+  left: -5px;
+  color: var(--culture-yellow);
+  font-family: Georgia, serif;
+  font-size: 115px;
+  line-height: 1;
+}
+
+.culture-lead {
+  position: relative;
+  margin: 0;
+  color: var(--culture-navy);
+  font-size: clamp(25px, 2.4vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.4;
+}
+
+.culture-divider {
+  width: 55px;
+  height: 2px;
+  margin: 38px 0;
+  background: var(--culture-yellow);
+}
+
+.culture-intro-content > p:last-child {
+  margin: 0;
+  color: var(--culture-gray-600);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* ============================================================
+   STATEMENT / WORKFLOW
+============================================================ */
+
+.culture-statement {
+  position: relative;
+  overflow: hidden;
+  padding: 145px 0;
+  background: var(--culture-navy);
+}
+
+.culture-statement-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.culture-statement-header {
+  position: relative;
+  z-index: 2;
+}
+
+.culture-statement-header h2 {
+  max-width: 900px;
+  margin: 0;
+  color: white;
+  font-size: clamp(50px, 7vw, 95px);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+}
+
+.culture-statement-header h2 span {
+  color: var(--culture-yellow);
+}
+
+.culture-workflow {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  margin-top: 90px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.culture-workflow-card {
+  position: relative;
+  min-height: 300px;
+  padding: 26px;
+  background: var(--culture-navy);
+  transition:
+    background 0.35s ease,
+    transform 0.35s var(--culture-transition);
+}
+
+.culture-workflow-card:hover {
+  z-index: 2;
+  background: var(--culture-navy-2);
+  transform: translateY(-5px);
+}
+
+.workflow-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workflow-top > span {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.workflow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  color: var(--culture-yellow);
+}
+
+.workflow-content {
+  position: absolute;
+  right: 26px;
+  bottom: 26px;
+  left: 26px;
+}
+
+.workflow-content h3 {
+  margin: 0 0 13px;
+  color: white;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.workflow-content p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.workflow-connector {
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  border-radius: 50%;
+  background: var(--culture-navy);
+  color: var(--culture-yellow);
+  transform: translateY(-50%);
+}
+
+.culture-statement-text {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 65px 0 0 auto;
+  padding-left: 30px;
+  border-left: 2px solid var(--culture-yellow);
+}
+
+.culture-statement-text p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   STANDARDS
+============================================================ */
+
+.culture-standards {
+  padding: 145px 0;
+  background: var(--culture-gray-50);
+}
+
+.culture-standards-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 110px;
+  align-items: center;
+}
+
+.culture-standards-title h2 {
+  max-width: 500px;
+}
+
+.culture-standards-intro {
+  max-width: 500px;
+  margin: 35px 0 0;
+  color: var(--culture-gray-600);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.culture-standard-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--culture-gray-200);
+}
+
+.culture-standard-item {
+  min-height: 235px;
+  display: flex;
+  gap: 20px;
+  padding: 28px;
+  background: white;
+  transition:
+    background 0.3s ease,
+    transform 0.3s var(--culture-transition);
+}
+
+.culture-standard-item:hover {
+  position: relative;
+  z-index: 2;
+  background: var(--culture-navy);
+  transform: translateY(-4px);
+}
+
+.standard-icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 47px;
+  height: 47px;
+  background: rgba(250, 204, 21, 0.12);
+  color: var(--culture-yellow-dark);
+}
+
+.culture-standard-item > div:last-child > span {
+  color: var(--culture-gray-400);
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.culture-standard-item h3 {
+  margin: 35px 0 10px;
+  color: var(--culture-navy);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.culture-standard-item p {
+  margin: 0;
+  color: var(--culture-gray-500);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.culture-standard-item:hover h3 {
+  color: white;
+}
+
+.culture-standard-item:hover p {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.culture-standard-item:hover > div:last-child > span {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* ============================================================
+   PRINCIPLES
+============================================================ */
+
+.culture-principles {
+  padding: 145px 0;
+  background: white;
+}
+
+.culture-principles-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 65px;
+}
+
+.culture-principles-header > p {
+  max-width: 440px;
+  margin: 0;
+  color: var(--culture-gray-500);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.culture-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--culture-gray-200);
+  border: 1px solid var(--culture-gray-200);
+}
+
+.culture-principle-card {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  padding: 28px;
+  background: white;
+  transition:
+    background 0.35s ease,
+    transform 0.35s var(--culture-transition);
+}
+
+.culture-principle-card:hover {
+  z-index: 2;
+  background: var(--culture-navy);
+  transform: translateY(-6px);
+}
+
+.principle-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.principle-top > span {
+  color: var(--culture-gray-400);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.principle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--culture-gray-200);
+  color: var(--culture-navy);
+}
+
+.culture-principle-card:hover .principle-icon {
+  border-color: rgba(250, 204, 21, 0.3);
+  color: var(--culture-yellow);
+}
+
+.principle-letter {
+  position: absolute;
+  right: -15px;
+  bottom: -10px;
+  color: rgba(7, 27, 53, 0.04);
+  font-size: 210px;
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 0.8;
+}
+
+.culture-principle-card:hover .principle-letter {
+  color: rgba(255, 255, 255, 0.035);
+}
+
+.principle-body {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  left: 28px;
+}
+
+.principle-body h3 {
+  margin: 0 0 13px;
+  color: var(--culture-navy);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.culture-principle-card:hover .principle-body h3 {
+  color: white;
+}
+
+.principle-body p {
+  max-width: 340px;
+  margin: 0;
+  color: var(--culture-gray-500);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.culture-principle-card:hover .principle-body p {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.principle-bottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 23px;
+  color: var(--culture-gray-400);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.principle-bottom i {
+  flex: 1;
+  height: 1px;
+  background: var(--culture-gray-200);
+}
+
+.culture-principle-card:hover .principle-bottom {
+  color: var(--culture-yellow);
+}
+
+.culture-principle-card:hover .principle-bottom i {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================================
+   RELATIONS
+============================================================ */
+
+.culture-relations {
+  padding: 150px 0;
+  background: var(--culture-gray-50);
+}
+
+.culture-relations-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 110px;
+  align-items: center;
+}
+
+.culture-relations-visual {
+  position: relative;
+  width: min(510px, 100%);
+  aspect-ratio: 1;
+  margin: auto;
+}
+
+.relations-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--culture-gray-200);
+  font-size: 100px;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+}
+
+.relations-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--culture-gray-200);
+}
+
+.relations-circle-one {
+  inset: 8%;
+  animation: relationsRotate 25s linear infinite;
+}
+
+.relations-circle-two {
+  inset: 23%;
+  border-style: dashed;
+  border-color: rgba(250, 204, 21, 0.45);
+  animation: relationsRotateReverse 18s linear infinite;
+}
+
+@keyframes relationsRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes relationsRotateReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.relations-center {
+  position: absolute;
+  inset: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: var(--culture-navy);
+  color: white;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(7, 27, 53, 0.15);
+}
+
+.relations-center svg {
+  margin-bottom: 13px;
+  color: var(--culture-yellow);
+}
+
+.relations-center span {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.relations-center strong {
+  margin-top: 7px;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.relations-tag {
+  position: absolute;
+  padding: 11px 15px;
+  border: 1px solid var(--culture-gray-200);
+  background: white;
+  color: var(--culture-navy);
+  font-size: 9px;
+  font-weight: 900;
+  box-shadow: 0 12px 30px rgba(7, 27, 53, 0.07);
+}
+
+.relations-tag-one {
+  top: 17%;
+  left: 2%;
+}
+
+.relations-tag-two {
+  top: 48%;
+  right: -2%;
+}
+
+.relations-tag-three {
+  bottom: 15%;
+  left: 7%;
+}
+
+.culture-relations-content {
+  max-width: 650px;
+}
+
+.culture-relations-content > p:not(.culture-eyebrow) {
+  margin: 35px 0 0;
+  color: var(--culture-gray-600);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.relations-points {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: 40px;
+  background: var(--culture-gray-200);
+  border: 1px solid var(--culture-gray-200);
+}
+
+.relations-points div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px;
+  background: white;
+  color: var(--culture-navy);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.relations-points svg {
+  flex: 0 0 auto;
+  color: var(--culture-yellow-dark);
+}
+
+/* ============================================================
+   FINAL
+============================================================ */
+
+.culture-final {
+  position: relative;
+  min-height: 780px;
+  overflow: hidden;
+  background: var(--culture-navy);
+}
+
+.culture-final-image {
+  position: absolute;
+  inset: 0;
+}
+
+.culture-final-image img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.culture-final-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 27, 53, 0.98) 0%,
+      rgba(7, 27, 53, 0.88) 50%,
+      rgba(7, 27, 53, 0.5) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(7, 27, 53, 0.9),
+      transparent
+    );
+}
+
+.culture-final-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px);
+  background-size: 75px 75px;
+}
+
+.culture-final-content {
+  position: relative;
+  z-index: 3;
+  min-height: 780px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 110px 0;
+}
+
+.culture-final-label {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+}
+
+.culture-final-label span {
+  width: 35px;
+  height: 1px;
+  background: var(--culture-yellow);
+}
+
+.culture-final-content h2 {
+  max-width: 950px;
+  margin: 35px 0 0;
+  color: white;
+  font-size: clamp(50px, 7vw, 94px);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+}
+
+.culture-final-content h2 span {
+  color: var(--culture-yellow);
+}
+
+.culture-final-content > p {
+  max-width: 670px;
+  margin: 35px 0 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.culture-final-signature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  max-width: 760px;
+  margin-top: 35px;
+}
+
+.signature-line {
+  width: 45px;
+  height: 2px;
+  flex: 0 0 auto;
+  background: var(--culture-yellow);
+}
+
+.culture-final-signature strong {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.culture-final-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 56px;
+  margin-top: 35px;
+  padding: 0 26px;
+  background: var(--culture-yellow);
+  color: var(--culture-navy);
+  font-size: 12px;
+  font-weight: 900;
+  transition:
+    transform 0.3s var(--culture-transition),
+    background 0.3s ease;
+}
+
+.culture-final-button:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.culture-final-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.culture-final-footer div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 18px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.culture-final-footer div:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.culture-final-footer span {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.culture-final-footer strong {
+  color: var(--culture-yellow);
+  font-size: 12px;
+}
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 1100px) {
+  .culture-container {
+    width: min(100% - 40px, 1000px);
+  }
+
+  .culture-hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-hero-side {
+    display: none;
+  }
+
+  .culture-intro-grid,
+  .culture-standards-grid,
+  .culture-relations-grid {
+    gap: 65px;
+  }
+
+  .culture-workflow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .culture-workflow-card:nth-child(3) .workflow-connector {
+    display: none;
+  }
+
+  .culture-principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================================
+   TABLET / MOBILE
+============================================================ */
+
+@media (max-width: 850px) {
+  .culture-hero,
+  .culture-hero-content {
+    min-height: auto;
+  }
+
+  .culture-hero-content {
+    padding: 115px 0 60px;
+  }
+
+  .culture-kicker {
+    margin-bottom: 55px;
+  }
+
+  .culture-hero-bottom {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 65px;
+  }
+
+  .culture-hero-bottom div {
+    padding-bottom: 16px;
+  }
+
+  .culture-section-heading,
+  .culture-intro-grid,
+  .culture-standards-grid,
+  .culture-relations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-section-heading {
+    gap: 25px;
+    margin-bottom: 65px;
+  }
+
+  .culture-intro {
+    padding: 100px 0;
+  }
+
+  .culture-intro-grid {
+    gap: 70px;
+  }
+
+  .culture-intro-image {
+    min-height: 520px;
+  }
+
+  .culture-statement,
+  .culture-standards,
+  .culture-principles,
+  .culture-relations {
+    padding: 100px 0;
+  }
+
+  .culture-workflow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .culture-workflow-card:nth-child(3) .workflow-connector {
+    display: flex;
+  }
+
+  .culture-workflow-card:nth-child(2) .workflow-connector,
+  .culture-workflow-card:nth-child(4) .workflow-connector {
+    display: none;
+  }
+
+  .culture-standards-grid {
+    gap: 70px;
+  }
+
+  .culture-principles-header {
+    display: block;
+  }
+
+  .culture-principles-header > p {
+    margin-top: 25px;
+  }
+
+  .culture-relations-visual {
+    width: min(460px, 100%);
+  }
+
+  .culture-final-content,
+  .culture-final {
+    min-height: 720px;
+  }
+}
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 620px) {
+  .culture-container {
+    width: calc(100% - 32px);
+  }
+
+  .culture-yellow-bar {
+    width: 90px;
+  }
+
+  .culture-hero-content {
+    padding-top: 100px;
+  }
+
+  .culture-kicker {
+    margin-bottom: 45px;
+    font-size: 8px;
+  }
+
+  .culture-hero-main h1 {
+    font-size: clamp(49px, 15vw, 76px);
+  }
+
+  .culture-hero-main p {
+    margin-top: 30px;
+    font-size: 14px;
+  }
+
+  .culture-hero-actions {
+    flex-direction: column;
+  }
+
+  .culture-btn-primary,
+  .culture-btn-outline {
+    width: 100%;
+  }
+
+  .culture-hero-bottom {
+    grid-template-columns: 1fr;
+    margin-top: 50px;
+  }
+
+  .culture-hero-bottom div {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .culture-section-heading h2,
+  .culture-standards-title h2,
+  .culture-principles-header h2,
+  .culture-relations-content h2 {
+    font-size: 45px;
+  }
+
+  .culture-intro {
+    padding: 80px 0;
+  }
+
+  .culture-intro-image {
+    min-height: 430px;
+  }
+
+  .culture-intro-content {
+    padding-left: 15px;
+  }
+
+  .culture-big-quote {
+    left: -15px;
+    top: -45px;
+    font-size: 80px;
+  }
+
+  .culture-lead {
+    font-size: 25px;
+  }
+
+  .culture-statement,
+  .culture-standards,
+  .culture-principles,
+  .culture-relations {
+    padding: 80px 0;
+  }
+
+  .culture-statement-header h2 {
+    font-size: 50px;
+  }
+
+  .culture-workflow {
+    grid-template-columns: 1fr;
+    margin-top: 60px;
+  }
+
+  .culture-workflow-card {
+    min-height: 250px;
+  }
+
+  .workflow-connector {
+    display: none !important;
+  }
+
+  .culture-statement-text {
+    margin-top: 50px;
+  }
+
+  .culture-statement-text p {
+    font-size: 15px;
+  }
+
+  .culture-standard-items {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-standard-item {
+    min-height: 205px;
+  }
+
+  .culture-principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-principle-card {
+    min-height: 340px;
+  }
+
+  .relations-tag {
+    font-size: 8px;
+  }
+
+  .relations-tag-two {
+    right: 0;
+  }
+
+  .relations-center {
+    inset: 30%;
+  }
+
+  .relations-center strong {
+    font-size: 17px;
+  }
+
+  .relations-points {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-final-content {
+    min-height: 720px;
+    padding: 90px 0 140px;
+  }
+
+  .culture-final-content h2 {
+    font-size: 51px;
+  }
+
+  .culture-final-content > p {
+    font-size: 14px;
+  }
+
+  .culture-final-signature {
+    align-items: flex-start;
+  }
+
+  .culture-final-footer {
+    width: calc(100% - 32px);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .culture-final-footer div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .culture-final-footer div:nth-child(3),
+  .culture-final-footer div:nth-child(4) {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .culture-final-footer div:nth-child(3) {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .culture-image,
+  .relations-circle-one,
+  .relations-circle-two {
+    animation: none;
+  }
+
+  .culture-btn-primary,
+  .culture-btn-outline,
+  .culture-workflow-card,
+  .culture-standard-item,
+  .culture-principle-card,
+  .culture-final-button {
+    transition: none;
+  }
+}
