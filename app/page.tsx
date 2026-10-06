@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -18,9 +18,22 @@ import {
   Truck,
   Users,
   Wrench,
+  X,
 } from "lucide-react";
 
 export default function HomePage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    "Accueil",
+    "À propos",
+    "Services",
+    "Secteurs",
+    "Réalisations",
+    "Actualités",
+    "Contact",
+  ];
+
   return (
     <main className="wb-page">
       {/* TOP BAR */}
@@ -56,23 +69,79 @@ export default function HomePage() {
             />
           </a>
 
+          {/* Navigation Ordinateur */}
           <nav className="nav-links">
-            {["Accueil", "À propos", "Services", "Secteurs", "Réalisations", "Actualités", "Contact"].map(
-              (item, index) => (
-                <a key={item} href={`#${item.toLowerCase().replaceAll(" ", "-")}`} className={index === 0 ? "active" : ""}>
-                  {item}
-                </a>
-              )
-            )}
+            {navLinks.map((item, index) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replaceAll(" ", "-")}`}
+                className={index === 0 ? "active" : ""}
+              >
+                {item}
+              </a>
+            ))}
           </nav>
 
           <a href="#contact" className="quote-btn">
             Demander un devis <ArrowRight size={15} />
           </a>
 
-          <button className="mobile-menu" aria-label="Menu">
-            <Menu size={24} />
+          {/* Bouton Hamburger Mobile */}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          >
+            {menuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
+        </div>
+
+        {/* Overlay Arrière-plan Mobile */}
+        <div
+          className={`mobile-overlay ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(false)}
+        />
+
+        {/* Menu Tiroir Mobile */}
+        <div className={`mobile-drawer ${menuOpen ? "open" : ""}`}>
+          <div className="mobile-drawer-header">
+            <span className="mobile-drawer-title">WB MINING SERVICES</span>
+            <button
+              className="mobile-close-btn"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Fermer le menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          <nav className="mobile-nav-links">
+            {navLinks.map((item, index) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replaceAll(" ", "-")}`}
+                className={index === 0 ? "active" : ""}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
+
+          <div className="mobile-drawer-footer">
+            <a
+              href="#contact"
+              className="primary-btn full-width"
+              onClick={() => setMenuOpen(false)}
+            >
+              Demander un devis <ArrowRight size={16} />
+            </a>
+
+            <div className="mobile-contact-info">
+              <p><Phone size={14} /> +243 979 380 002</p>
+              <p><Mail size={14} /> contact@wbminingservices.com</p>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -221,7 +290,7 @@ export default function HomePage() {
         a { color: inherit; text-decoration: none; transition: all 0.2s ease; }
         button { font: inherit; cursor: pointer; }
 
-        .wb-page { overflow: hidden; }
+        .wb-page { overflow-x: hidden; position: relative; }
         
         /* TOPBAR */
         .topbar { height: 36px; background: #071b35; color: white; font-size: 12px; }
@@ -235,7 +304,7 @@ export default function HomePage() {
 
         /* NAVBAR */
         .navbar { height: 80px; background: #fff; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
-        .nav-inner { max-width: 1240px; height: 100%; margin: auto; display: flex; align-items: center; padding: 0 20px; gap: 30px; }
+        .nav-inner { max-width: 1240px; height: 100%; margin: auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; gap: 30px; }
         .brand { display: flex; align-items: center; height: 100%; }
         .logo { max-height: 52px; width: auto; object-fit: contain; }
 
@@ -247,7 +316,108 @@ export default function HomePage() {
         .quote-btn, .primary-btn, .small-btn { background: #facc15; color: #071b35; border-radius: 8px; padding: 12px 22px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; transition: transform 0.2s, background-color 0.2s; }
         .quote-btn:hover, .primary-btn:hover, .small-btn:hover { background: #eab308; transform: translateY(-1px); }
         .quote-btn { white-space: nowrap; }
-        .mobile-menu { display: none; background: none; border: 0; color: #071b35; }
+
+        .mobile-menu-btn { display: none; background: none; border: 0; color: #071b35; padding: 6px; }
+
+        /* MENU MOBILE DROITE (DRAWER) */
+        .mobile-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(7, 27, 53, 0.6);
+          backdrop-filter: blur(4px);
+          z-index: 998;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.3s ease;
+        }
+        .mobile-overlay.open {
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .mobile-drawer {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 82%;
+          max-width: 320px;
+          height: 100vh;
+          background: #071b35;
+          color: white;
+          z-index: 999;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 24px;
+          transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+        }
+        .mobile-drawer.open {
+          right: 0;
+        }
+
+        .mobile-drawer-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-bottom: 20px;
+          border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .mobile-drawer-title {
+          font-weight: 800;
+          font-size: 14px;
+          letter-spacing: 0.5px;
+          color: #facc15;
+        }
+        .mobile-close-btn {
+          background: none;
+          border: none;
+          color: #fff;
+          padding: 4px;
+          display: flex;
+          align-items: center;
+        }
+
+        .mobile-nav-links {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin: 30px 0;
+        }
+        .mobile-nav-links a {
+          font-size: 16px;
+          font-weight: 600;
+          color: #cbd5e1;
+          padding: 8px 0;
+          border-bottom: 1px solid rgba(255,255,255,0.05);
+          transition: color 0.2s, padding-left 0.2s;
+        }
+        .mobile-nav-links a.active, .mobile-nav-links a:hover {
+          color: #facc15;
+          padding-left: 6px;
+        }
+
+        .mobile-drawer-footer {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        .full-width {
+          width: 100%;
+        }
+        .mobile-contact-info {
+          font-size: 12px;
+          color: #94a3b8;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .mobile-contact-info p {
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
 
         /* HERO */
         .hero {
@@ -380,7 +550,7 @@ export default function HomePage() {
 
         @media (max-width: 900px) {
           .nav-links, .quote-btn { display: none; }
-          .mobile-menu { display: block; }
+          .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
           .hero-inner { flex-direction: column; text-align: center; padding-top: 40px; }
           .hero-copy { max-width: 100%; }
           .hero p { margin-left: auto; margin-right: auto; }
@@ -421,10 +591,10 @@ function QuoteForm() {
       <input placeholder="Téléphone (+243...)" />
       <select defaultValue="">
         <option value="" disabled>Type de demande</option>
-        <option>Exploitation min</option>
+        <option>Exploitation minière</option>
         <option>Services industriels</option>
         <option>Commerce général</option>
-        <option>d'autre services cpmplementaire</option>
+        <option>D'autres services complémentaires</option>
       </select>
       <textarea placeholder="Décrivez succinctement votre besoin..." />
       <label className="check">
