@@ -111,13 +111,9 @@ export default function MissionPage() {
 
           <h1>
             Transformer les besoins
-            <strong>en solutions.</strong>
+            <strong>en solutions, les défis en opportunités
+            et les projets en valeur durable.</strong>
           </h1>
-
-          <p className="mission-hero-subtitle">
-            Transformer les besoins en solutions, les défis en opportunités
-            et les projets en valeur durable.
-          </p>
 
           <div className="mission-hero-actions">
             <Link href="/services" className="mission-btn mission-btn-primary">
@@ -243,9 +239,9 @@ export default function MissionPage() {
               </div>
 
               <h2>
-                Comprendre avant d'agir.
+                Comprendre avant d'agir,
                 <br />
-                Exécuter avec rigueur.
+                Exécuter avec professionnalisme.
               </h2>
 
               <div className="mission-line" />
@@ -369,16 +365,11 @@ export default function MissionPage() {
           </div>
 
           <h2>
-            Faire de chaque besoin
+            Faire de chaque besoin une solution pertinente,
             <br />
-            <strong>une solution pertinente.</strong>
+            <strong>de chaque project une reussite et de chaque partenariat une relation durable.</strong>
           </h2>
 
-          <p className="mission-engagement-intro">
-            Notre engagement se traduit par une volonté constante de créer de
-            la valeur, d'accompagner nos partenaires et de contribuer
-            concrètement à leurs objectifs.
-          </p>
 
           <div className="mission-engagement-grid">
             {engagementItems.map((item) => {

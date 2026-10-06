@@ -421,10 +421,10 @@ function QuoteForm() {
       <input placeholder="Téléphone (+243...)" />
       <select defaultValue="">
         <option value="" disabled>Type de demande</option>
-        <option>Exploitation minière</option>
+        <option>Exploitation min</option>
         <option>Services industriels</option>
         <option>Commerce général</option>
-        <option>Conseil & Ingénierie</option>
+        <option>d'autre services cpmplementaire</option>
       </select>
       <textarea placeholder="Décrivez succinctement votre besoin..." />
       <label className="check">
