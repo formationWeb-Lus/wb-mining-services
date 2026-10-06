@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   ChevronDown,
@@ -24,15 +25,15 @@ import {
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks = [
-    "Accueil",
-    "À propos",
-    "Services",
-    "Secteurs",
-    "Réalisations",
-    "Actualités",
-    "Contact",
-  ];
+ const navLinks = [
+  { name: "Accueil", href: "/" },
+  { name: "À propos", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Secteurs", href: "/sectors" },
+  { name: "Réalisations", href: "/projects" },
+  { name: "Actualités", href: "/news" },
+  { name: "Contact", href: "/contact" },
+];
 
   return (
     <main className="wb-page">
@@ -58,7 +59,7 @@ export default function HomePage() {
       {/* NAVBAR */}
       <header className="navbar">
         <div className="nav-inner">
-          <a href="#" className="brand">
+          <Link href="/" className="brand">
             <Image
               src="/logo/wb-mining-services.jpeg"
               alt="WB Mining Services"
@@ -67,24 +68,24 @@ export default function HomePage() {
               priority
               className="logo"
             />
-          </a>
+          </Link>
 
           {/* Navigation Ordinateur */}
           <nav className="nav-links">
             {navLinks.map((item, index) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replaceAll(" ", "-")}`}
+              <Link
+                key={item.name}
+                href={item.href}
                 className={index === 0 ? "active" : ""}
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             ))}
           </nav>
 
-          <a href="#contact" className="quote-btn">
+          <Link href="/contact" className="quote-btn">
             Demander un devis <ArrowRight size={15} />
-          </a>
+          </Link>
 
           {/* Bouton Hamburger Mobile */}
           <button
@@ -117,25 +118,25 @@ export default function HomePage() {
 
           <nav className="mobile-nav-links">
             {navLinks.map((item, index) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replaceAll(" ", "-")}`}
+              <Link
+                key={item.name}
+                href={item.href}
                 className={index === 0 ? "active" : ""}
                 onClick={() => setMenuOpen(false)}
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             ))}
           </nav>
 
           <div className="mobile-drawer-footer">
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="primary-btn full-width"
               onClick={() => setMenuOpen(false)}
             >
               Demander un devis <ArrowRight size={16} />
-            </a>
+            </Link>
 
             <div className="mobile-contact-info">
               <p><Phone size={14} /> +243 979 380 002</p>
@@ -164,8 +165,12 @@ export default function HomePage() {
             </p>
 
             <div className="hero-actions">
-              <a href="#services" className="primary-btn">Nos services <ArrowRight size={17} /></a>
-              <a href="#contact" className="outline-btn">Nous contacter</a>
+              <Link href="/services" className="primary-btn">
+                Nos services <ArrowRight size={17} />
+              </Link>
+              <Link href="/contact" className="outline-btn">
+                Nous contacter
+              </Link>
             </div>
           </div>
 
@@ -181,7 +186,7 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT */}
-      <section className="about section" id="à-propos">
+      <section className="about section" id="a-propos">
         <div className="about-image">
           <div className="yellow-shape" />
           
@@ -210,7 +215,9 @@ export default function HomePage() {
             innovantes, fiables et durables pour répondre aux besoins de nos clients
             et contribuer au développement économique.
           </p>
-          <a href="#contact" className="primary-btn">Découvrir notre entreprise <ArrowRight size={16} /></a>
+          <Link href="/a-propos" className="primary-btn">
+            Découvrir notre entreprise <ArrowRight size={16} />
+          </Link>
         </div>
 
         <div className="stats">
@@ -229,7 +236,9 @@ export default function HomePage() {
             <h2>Des solutions complètes pour tous vos projets</h2>
             <p>Nous proposons une gamme complète de services adaptés à vos besoins spécifiques.</p>
           </div>
-          <a href="#contact" className="small-btn">Voir tous nos services <ArrowRight size={14} /></a>
+          <Link href="/services" className="small-btn">
+            Voir tous nos services <ArrowRight size={14} />
+          </Link>
         </div>
 
         <div className="service-grid">
@@ -252,7 +261,9 @@ export default function HomePage() {
               Nous servons des entreprises minières, industrielles, commerciales,
               des institutions et des partenaires internationaux avec excellence.
             </p>
-            <a href="#contact" className="primary-btn">En savoir plus <ArrowRight size={16} /></a>
+            <Link href="/secteurs" className="primary-btn">
+              En savoir plus <ArrowRight size={16} />
+            </Link>
           </div>
 
           <div className="sector-cards">
@@ -272,9 +283,9 @@ export default function HomePage() {
           <h2>Parlons de votre prochain projet</h2>
           <p>Notre équipe est disponible pour étudier vos besoins et vous proposer une solution personnalisée.</p>
         </div>
-        <a href="mailto:contact@wbminingservices.com" className="primary-btn">
+        <Link href="/contact" className="primary-btn">
           Nous contacter <ArrowRight size={16} />
-        </a>
+        </Link>
       </section>
 
       {/* FOOTER */}
